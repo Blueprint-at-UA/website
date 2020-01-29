@@ -21,8 +21,11 @@ jobs:
     - name: Build
       run: npm run build
     
-    - name: GitHub Pages Deploy
-      uses: maxheld83/ghpages@v0.2.1
-      env: 
-        BUILD_DIR: "public/"
-        GH_PAT: ${{secrets.GH_PAT}}
+    - name: FTP Deploy
+      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      env:
+        FTP_SERVER: ${{secrets.FTP_URL}}
+        FTP_USERNAME: ${{secrets.FTP_USER}}
+        FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
+        METHOD: sftp
+        LOCAL_DIR: public
