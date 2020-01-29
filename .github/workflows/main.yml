@@ -23,3 +23,6 @@ jobs:
     
     - name: GitHub Pages Deploy
       uses: maxheld83/ghpages@v0.2.1
+      secrets: ["GH_PATH"]
+      env: 
+        BUILD_DIR: "public/"
