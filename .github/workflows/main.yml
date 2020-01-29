@@ -29,3 +29,4 @@ jobs:
         FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
         METHOD: sftp
         LOCAL_DIR: public
+        REMOTE_DIR: /var/www/html
