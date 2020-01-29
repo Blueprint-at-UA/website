@@ -1,0 +1,44 @@
+$blue: #0078e8;
+$cyan: #93c9fe;
+$red: #d64033;
+$yellow: #f1be23;
+$orange: #d6741e;
+$green: #21bcb4;
+$font-family-sans-serif: "Open Sans", sans-serif;
+$spacer: 1rem !default;
+$spacers: (
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+  9: $spacer * 9
+);
+
+$use-fadeInDown: true;
+$use-fadeIn: true;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~animate-sass/_animate.scss";
+
+/*
+  Creates a background imaage with a linear gradient. Sets offsets based on width for better
+  looks on smaller devices.
+*/
+@mixin backgroundFeature($image-url, $color) {
+  background-image: linear-gradient(rgba($color, 0), rgba($color, 0.7)),
+    url($image-url);
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  @media (max-width: map-get($grid-breakpoints, "md")) {
+    background-position: right 50% bottom 0px;
+  }
+  @media (max-width: map-get($grid-breakpoints, "sm")) {
+    background-position: right 75% bottom 0px;
+  }
+}
+
+$blueprintBlue: $blue;
+
+.shelby-background {
+  @include backgroundFeature("../SidebarTest2.png", $blue);
+}

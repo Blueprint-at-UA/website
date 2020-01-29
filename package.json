@@ -1,0 +1,26 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "repository": "https://github.com/blueprint-at-ua/website",
+  "author": "Blueprint at UA",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "@types/turbolinks": "^5.2.0",
+    "parcel-bundler": "^1.12.4",
+    "sass": "^1.25.0",
+    "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html --out-dir public"
+  },
+  "dependencies": {
+    "animate-sass": "^0.8.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "node-sass": "^4.13.1",
+    "popper.js": "^1.16.0",
+    "typeface-open-sans": "^0.0.75"
+  }
+}
