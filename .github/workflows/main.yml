@@ -20,3 +20,6 @@ jobs:
       
     - name: Build
       run: npm run build
+    
+    - name: GitHub Pages Deploy
+      uses: maxheld83/ghpages@v0.2.1
