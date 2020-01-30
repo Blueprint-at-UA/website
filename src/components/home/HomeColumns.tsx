@@ -68,11 +68,13 @@ const HomeColumns = () => {
                 resume. 😉 Come join us in creating a one-of-a-kind opportunity
                 for The University of Alabama.
               </div>
-              <Link to="/apply">
-                <Button variant="primary" size="lg" className="w-25">
-                  Apply now
-                </Button>
-              </Link>
+              <Button
+                variant="primary"
+                size="lg"
+                href="https://forms.gle/HYkoGbzwAR37pa3v9"
+              >
+                Apply now
+              </Button>
             </div>
           </div>
           <div className="col-lg-5">

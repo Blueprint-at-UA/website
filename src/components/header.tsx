@@ -43,9 +43,12 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
               </Link>
             </Nav.Item>
             <Nav.Item>
-              <Link to="/apply" className="nav-link" activeClassName="active">
+              <a
+                className="nav-link"
+                href="https://forms.gle/HYkoGbzwAR37pa3v9"
+              >
                 Apply
-              </Link>
+              </a>
             </Nav.Item>
             <Nav.Item>
               <Link to="/contact" className="nav-link" activeClassName="active">
