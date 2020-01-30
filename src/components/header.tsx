@@ -51,6 +51,14 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
               </a>
             </Nav.Item>
             <Nav.Item>
+              <a
+                className="nav-link"
+                href="https://join.slack.com/t/blueprintatua/shared_invite/enQtOTEzMzE4ODEwMzU1LWFmMDdlMDE2YjNlYmJiMWZhZjQ4YWUxNTUyM2RiNTAzZDM5Njk1ZTQzZDYwYjJmNzM5NTMxMTQ1OGRjMzdiNzQ"
+              >
+                Join our Slack!
+              </a>
+            </Nav.Item>
+            <Nav.Item>
               <Link to="/contact" className="nav-link" activeClassName="active">
                 Contact
               </Link>
