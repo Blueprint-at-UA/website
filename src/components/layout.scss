@@ -1,0 +1,20 @@
+$blue: #0078e8;
+$cyan: #93c9fe;
+$red: #d64033;
+$yellow: #f1be23;
+$orange: #d6741e;
+$green: #21bcb4;
+$font-family-sans-serif: "Open Sans", sans-serif;
+$spacer: 1rem !default;
+$spacers: (
+  6: $spacer * 4.5,
+  7: $spacer * 6,
+  8: $spacer * 7.5,
+  9: $spacer * 9,
+);
+
+$use-fadeInDown: true;
+$use-fadeIn: true;
+
+@import "~bootstrap/scss/bootstrap";
+@import "~animate-sass/_animate.scss";
