@@ -26,10 +26,9 @@ jobs:
           FTP_SERVER: ${{secrets.FTP_URL}}
           FTP_USERNAME: ${{secrets.FTP_USER}}
           FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
-          METHOD: sftp
+          METHOD: ftp
           LOCAL_DIR: public
           REMOTE_DIR: /var/www/html
-          PORT: 2222
 
       - uses: actions/cache@v1
         with:
