@@ -36,3 +36,4 @@ jobs:
           METHOD: sftp
           LOCAL_DIR: public
           REMOTE_DIR: /var/www/html
+          PORT: 2222
