@@ -1,38 +1,26 @@
-name: CI
+name: Deploy production site
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v2
-
-      - name: Set Node.js
-        uses: actions/setup-node@master
+      - uses: actions/checkout@v1
+      - name: Navigate to repo
+        run: cd $GITHUB_WORKSPACE
+      - uses: actions/setup-node@v1
         with:
-          node-version: 10.x
-
-      - name: Install dependencies
-        run: npm install --production
-
-      - name: Build
+          node-version: "10.x"
+      - name: Install deps
+        run: npm install
+      - name: Build site
         run: npm run build
-
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@2.0.0
-        env:
-          FTP_SERVER: ${{secrets.FTP_URL}}
-          FTP_USERNAME: ${{secrets.FTP_USER}}
-          FTP_PASSWORD: ${{secrets.FTP_PASSWORD}}
-          METHOD: ftp
-          LOCAL_DIR: public
-          REMOTE_DIR: /var/www/html
-
-      - uses: actions/cache@v1
+      - name: Publish
+        uses: cloudflare/wrangler-action@1.1.0
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          environment: "production"

@@ -1,0 +1,8 @@
+name = "website"
+type = "webpack"
+account_id = "b106e509ab2486b9137c74685972b672"
+workers_dev = true
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"
