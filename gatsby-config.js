@@ -38,5 +38,6 @@ module.exports = {
         useResolveUrlLoader: true,
       },
     },
+    "gatsby-plugin-postcss",
   ],
 }

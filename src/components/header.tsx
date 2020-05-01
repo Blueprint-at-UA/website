@@ -2,7 +2,7 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
 import React from "react"
-import { Navbar, Container, Nav } from "react-bootstrap"
+import Navbar from "./navbar"
 
 interface HeaderProps {
   siteTitle: string
@@ -23,51 +23,7 @@ const query = graphql`
 const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
   const data = useStaticQuery(query)
 
-  return (
-    <Navbar bg="primary" variant="dark" expand="lg" sticky="top">
-      <Container>
-        <Navbar.Brand>
-          <Img fixed={data.file.childImageSharp.fixed} />
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Item>
-              <Link to="/" className="nav-link" activeClassName="active">
-                Home
-              </Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="/about" className="nav-link" activeClassName="active">
-                About
-              </Link>
-            </Nav.Item>
-            <Nav.Item>
-              <a
-                className="nav-link"
-                href="https://forms.gle/HYkoGbzwAR37pa3v9"
-              >
-                Apply
-              </a>
-            </Nav.Item>
-            <Nav.Item>
-              <a
-                className="nav-link"
-                href="https://join.slack.com/t/blueprintatua/shared_invite/enQtOTEzMzE4ODEwMzU1LWFmMDdlMDE2YjNlYmJiMWZhZjQ4YWUxNTUyM2RiNTAzZDM5Njk1ZTQzZDYwYjJmNzM5NTMxMTQ1OGRjMzdiNzQ"
-              >
-                Join our Slack!
-              </a>
-            </Nav.Item>
-            <Nav.Item>
-              <Link to="/contact" className="nav-link" activeClassName="active">
-                Contact
-              </Link>
-            </Nav.Item>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  )
+  return <Navbar />
 }
 
 Header.propTypes = {
