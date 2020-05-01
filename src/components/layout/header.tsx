@@ -1,8 +1,8 @@
-import { Link, graphql, useStaticQuery } from "gatsby"
-import Img from "gatsby-image"
-import PropTypes from "prop-types"
-import React from "react"
-import Navbar from "./navbar"
+import { Link, graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Navbar from './header/navbar'
 
 interface HeaderProps {
   siteTitle: string
@@ -27,11 +27,11 @@ const Header: React.FC<HeaderProps> = ({ siteTitle }) => {
 }
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 }
 
 export default Header
