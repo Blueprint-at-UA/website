@@ -1,63 +1,82 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
-const Navbar = () => (
-  <nav className='flex items-center justify-between flex-wrap bg-teal-500 p-6'>
-    <div className='flex items-center flex-shrink-0 text-white mr-6'>
-      P
-      <svg
-        className='fill-current h-8 w-8 mr-2'
-        width='54'
-        height='54'
-        viewBox='0 0 54 54'
-        xmlns='http://www.w3.org/2000/svg'
-      >
-        <path d='M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z' />
-      </svg>
-      <span className='font-semibold text-xl tracking-tight'>Tailwind CSS</span>
-    </div>
-    <div className='block lg:hidden'>
-      <button className='flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white'>
-        <svg
-          className='fill-current h-3 w-3'
-          viewBox='0 0 20 20'
-          xmlns='http://www.w3.org/2000/svg'
-        >
-          <title>Menu</title>
-          <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
-        </svg>
-      </button>
-    </div>
-    <div className='w-full block flex-grow lg:flex lg:items-center lg:w-auto'>
-      <div className='text-sm lg:flex-grow'>
-        <a
-          href='#responsive-header'
-          className='block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4'
-        >
-          Docs
-        </a>
-        <a
-          href='#responsive-header'
-          className='block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4'
-        >
-          Examples
-        </a>
-        <a
-          href='#responsive-header'
-          className='block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white'
-        >
-          Blog
-        </a>
-      </div>
-      <div>
-        <a
-          href='#'
-          className='inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0'
-        >
-          Download
-        </a>
-      </div>
-    </div>
-  </nav>
+const query = graphql`
+  query {
+    file(relativePath: { eq: "color-logo.png" }) {
+      childImageSharp {
+        fixed(width: 200) {
+          ...GatsbyImageSharpFixed_withWebp_noBase64
+        }
+      }
+    }
+  }
+`
+
+const Item: React.FC = props => (
+  <li className='mt-3 md:mt-0 md:mr-5 text-gray-600 hover:text-black'>
+    {props.children}
+  </li>
 )
+
+const Navbar = () => {
+  const data = useStaticQuery(query)
+  const [active, setActive] = useState(false)
+
+  return (
+    <nav className='sticky w-full top-0 r-0 z-10 bg-white p-5 border-b border-gray-200'>
+      <div className='container mx-auto md:flex flex-row md:justify-between items-center'>
+        <div className='flex flex-row justify-between'>
+          <Link to='/'>
+            <Img fixed={data.file.childImageSharp.fixed} />
+          </Link>
+          <button
+            onClick={() => setActive(p => !p)}
+            className='md:hidden flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white'
+          >
+            <svg
+              className='fill-current h-3 w-3'
+              viewBox='0 0 20 20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <title>Menu</title>
+              <path d='M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z' />
+            </svg>
+          </button>
+        </div>
+        <ul
+          className={`${
+            active ? 'block' : 'hidden'
+          } md:flex md:flex-row md:items-center`}
+        >
+          <Item>
+            <Link to='/' activeClassName='text-black'>
+              Home
+            </Link>
+          </Item>
+          <Item>
+            <Link to='/about' activeClassName='text-black'>
+              About
+            </Link>
+          </Item>
+          <Item>
+            <a className='nav-link' href='https://forms.gle/HYkoGbzwAR37pa3v9'>
+              Apply
+            </a>
+          </Item>
+          <Item>
+            <a href='https://join.slack.com/t/blueprintatua/shared_invite/enQtOTEzMzE4ODEwMzU1LWFmMDdlMDE2YjNlYmJiMWZhZjQ4YWUxNTUyM2RiNTAzZDM5Njk1ZTQzZDYwYjJmNzM5NTMxMTQ1OGRjMzdiNzQ'>
+              Join our Slack
+            </a>
+          </Item>
+          <li className='mt-3 md:mt-0 bg-none border rounded-md transition-all duration-300 border-gray-500 text-gray-800 py-1 px-3 inline-block hover:bg-white hover:text-black hover:shadow-lg hover:border-gray-700'>
+            <Link to='/contact'>Get in touch</Link>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  )
+}
 
 export default Navbar
