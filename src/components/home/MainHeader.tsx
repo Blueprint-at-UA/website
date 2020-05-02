@@ -28,7 +28,7 @@ const MainHeader = () => {
           <p className='text-xl text-black'>
             We're a group of students at The University of Alabama who build
             technology solutions free-of-charge for nonprofits and those who do
-            good.
+            good. {'Testing'}
           </p>
           <Link
             to='/about'
