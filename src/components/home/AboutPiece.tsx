@@ -7,7 +7,7 @@ const AboutPiece = () => {
 	return (
 		<div className='py-20 bg-gray-100 px-5 dark:bg-primary'>
 			<div className='container mx-auto'>
-				<h1 className='text-gray-700 text-2xl dark:text-white'>
+				<h1 className='text-primary text-2xl dark:text-white'>
 					Blueprint at UA strives to make technology accessible for those who
 					assist communities and promote public welfare.
 				</h1>
