@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.shelby-image::before {
+	content: '' !important;
+	z-index: -1;
+	background-image: linear-gradient(
+		to left,
+		rgba(255, 255, 255, 0.5),
+		rgba(255, 255, 255, 0.95) 50%
+	) !important;
+	position: absolute !important;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.shelby-background {
+	background-size: 50% auto !important;
+	background-position: right !important;
+	background-repeat: no-repeat !important;
+}
+
+@media (min-width: 769px) {
+	.shelby-background::before {
+		background-size: 50% auto !important;
+		background-position: right !important;
+	}
+}
+
+@media (max-width: 768px) {
+	.shelby-background::before {
+		background-size: 75% auto !important;
+		background-position: top center !important;
+	}
+	.shelby-image::before {
+		background-image: linear-gradient(
+			rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.95) 35%
+		) !important;
+	}
+}
+
+@media (max-width: 640px) {
+	.shelby-background::before {
+		background-size: 100% auto !important;
+		background-position: top !important;
+		background-repeat: no-repeat !important;
+	}
+	.shelby-image::before {
+		background-image: linear-gradient(
+			rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.95) 35%
+		) !important;
+	}
+}
