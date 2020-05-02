@@ -1,5 +1,10 @@
 module.exports = {
-	purge: ['./src/**/*.tsx', './src/**/*.html'],
+	purge: {
+		content: ['./src/**/*.tsx', './src/**/*.html'],
+		options: {
+			whitelist: ['mode-dark'],
+		},
+	},
 	theme: {
 		extend: {
 			backgroundColor: theme => ({
@@ -23,6 +28,35 @@ module.exports = {
 			},
 		},
 	},
-	variants: {},
-	plugins: [],
+	variants: {
+		backgroundColor: [
+			'dark',
+			'dark-hover',
+			'dark-group-hover',
+			'dark-even',
+			'dark-odd',
+			'hover',
+		],
+		borderColor: [
+			'dark',
+			'dark-hover',
+			'dark-focus',
+			'dark-group-hover',
+			'dark-focus-within',
+			'dark-even',
+			'dark-odd',
+			'hover',
+		],
+		textColor: [
+			'dark',
+			'dark-hover',
+			'dark-active',
+			'dark-group-hover',
+			'dark-placeholder',
+			'dark-even',
+			'dark-odd',
+			'hover',
+		],
+	},
+	plugins: [require('tailwindcss-dark-mode')()],
 }

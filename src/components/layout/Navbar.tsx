@@ -1,10 +1,18 @@
 import React, { useState } from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
+import { useDarkMode } from '../darkmodehandler'
 
 const query = graphql`
 	query {
-		file(relativePath: { eq: "color-logo.png" }) {
+		dark: file(relativePath: { eq: "logo-dark.png" }) {
+			childImageSharp {
+				fixed(width: 200) {
+					...GatsbyImageSharpFixed_withWebp_noBase64
+				}
+			}
+		}
+		light: file(relativePath: { eq: "logo-light.png" }) {
 			childImageSharp {
 				fixed(width: 200) {
 					...GatsbyImageSharpFixed_withWebp_noBase64
@@ -15,7 +23,7 @@ const query = graphql`
 `
 
 const Item: React.FC = props => (
-	<li className='mt-3 md:mt-0 md:mr-5 text-gray-600 hover:text-black'>
+	<li className='mt-3 md:mt-0 md:mr-5 text-gray-600 hover:text-black dark:text-gray-400 dark-hover:text-white'>
 		{props.children}
 	</li>
 )
@@ -23,13 +31,18 @@ const Item: React.FC = props => (
 const Navbar = () => {
 	const data = useStaticQuery(query)
 	const [active, setActive] = useState(false)
+	const dark = useDarkMode()
 
 	return (
-		<nav className='sticky w-full top-0 r-0 z-10 bg-white p-5 border-b border-gray-200'>
+		<nav className='sticky w-full top-0 r-0 z-10 bg-white p-5 border-b border-gray-200 dark:bg-black dark:border-gray-800'>
 			<div className='container mx-auto md:flex flex-row md:justify-between items-center'>
 				<div className='flex flex-row justify-between'>
 					<Link to='/'>
-						<Img fixed={data.file.childImageSharp.fixed} />
+						{dark ? (
+							<Img fixed={data.light.childImageSharp.fixed} />
+						) : (
+							<Img fixed={data.dark.childImageSharp.fixed} />
+						)}
 					</Link>
 					<button
 						onClick={() => setActive(p => !p)}
@@ -51,12 +64,12 @@ const Navbar = () => {
 					} md:flex md:flex-row md:items-center`}
 				>
 					<Item>
-						<Link to='/' activeClassName='text-black'>
+						<Link to='/' activeClassName='text-white'>
 							Home
 						</Link>
 					</Item>
 					<Item>
-						<Link to='/about' activeClassName='text-black'>
+						<Link to='/about' activeClassName='text-white'>
 							About
 						</Link>
 					</Item>
@@ -70,7 +83,7 @@ const Navbar = () => {
 							Join our Slack
 						</a>
 					</Item>
-					<li className='mt-3 md:mt-0 bg-white border rounded-md transition-all duration-300 border-gray-500 text-gray-800 py-1 px-3 inline-block hover:bg-white hover:text-black hover:shadow-lg hover:border-gray-700'>
+					<li className='mt-3 md:mt-0 bg-white border-2 rounded-lg transition-all duration-300 border-gray-800 text-gray-800 py-1 px-3 inline-block hover:bg-gray-800 hover:text-white hover:shadow-lg hover:border-gray-800 dark:text-gray-100 dark:bg-black dark:border-gray-300 dark-hover:border-white dark-hover:bg-white dark-hover:text-black'>
 						<Link to='/contact'>Get in touch</Link>
 					</li>
 				</ul>

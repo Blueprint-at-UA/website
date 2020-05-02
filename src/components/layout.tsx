@@ -5,9 +5,10 @@
  * See: https://www.gatsbyjs.org/docs/use-static-query/
  */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import { addDarkMode } from './layout/darkmodehandler'
 
 import Navbar from './layout/Navbar'
 import './layout/layout.css'
@@ -22,6 +23,8 @@ const Layout: React.FC = ({ children }) => {
 			}
 		}
 	`)
+
+	useEffect(addDarkMode)
 
 	return (
 		<>

@@ -19,13 +19,13 @@ const MainHeader = () => {
 	const data = useStaticQuery(query)
 
 	return (
-		<div className='py-40'>
+		<div className='py-40 dark:bg-gray-900'>
 			<div className='container mx-auto px-5'>
 				<div className='max-w-5xl'>
-					<h1 className='text-5xl lg:text-6xl tracking-normal leading-tight lg:leading-normal font-bold text-black'>
+					<h1 className='text-5xl lg:text-6xl tracking-normal leading-tight lg:leading-normal font-bold text-black dark:text-white'>
 						We build tech for nonprofits.
 					</h1>
-					<p className='text-xl text-black'>
+					<p className='text-xl text-black dark:text-gray-200'>
 						We're a group of students at The University of Alabama who build
 						technology solutions free-of-charge for nonprofits and those who do
 						good.
