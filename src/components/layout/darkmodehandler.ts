@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export const checkDarkMode = () => {
+	if (typeof window === 'undefined') return false
 	if (
 		window.matchMedia &&
 		window.matchMedia('(prefers-color-scheme: dark)').matches
