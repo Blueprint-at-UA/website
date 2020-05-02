@@ -9,7 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from './layout/header'
+import Navbar from './layout/header/Navbar'
 import './layout/layout.css'
 
 const Layout: React.FC = ({ children }) => {
@@ -25,7 +25,7 @@ const Layout: React.FC = ({ children }) => {
 
 	return (
 		<>
-			<Header siteTitle={data.site.siteMetadata.title} />
+			<Navbar />
 			{children}
 			<footer>© {new Date().getFullYear()} Blueprint at UA.</footer>
 		</>

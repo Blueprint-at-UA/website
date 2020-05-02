@@ -26,6 +26,39 @@ const HomeColumns = () => {
 	const data = useStaticQuery(query)
 
 	return (
+		<div className='bg-white py-20'>
+			<div className='container mx-auto px-5 flex flex-wrap md:flex-row md:content-center md:items-center md:justify-center'>
+				<div className='w-full mt-5 px-10 md:hidden'>
+					<Img fluid={data.secondImage.childImageSharp.fluid} />
+				</div>
+				<div className='w-full md:w-2/3 lg:pr-10'>
+					<h2 className='text-3xl font-black'>
+						Enabling nonprofits to do better work.
+					</h2>
+					<p className='mt-2'>
+						Whether you have an idea and don't know how to excute it or want to
+						see how technology can improve your organization, we're here for
+						you.
+						<b>Our job is to make your job easier using technology.</b>{' '}
+						Regardless of your experience or knowledge of tech, we'll work with
+						you to develop solutions that make you move
+						<b>faster as an organization</b>.
+					</p>
+					<Link
+						to='/about'
+						className='inline-block border-2 text-primary text-gray-800 border-primary hover:bg-primary hover:text-white transition-all duration-300 text-md rounded-md mt-6 px-8 py-3 bg-white shadow-lg hover:shadow-xl'
+					>
+						Get in touch
+					</Link>
+				</div>
+				<div className='hidden md:block md:mt-0 md:p0 md:w-1/3 lg:px-10'>
+					<Img fluid={data.secondImage.childImageSharp.fluid} />
+				</div>
+			</div>
+		</div>
+	)
+
+	return (
 		<div className='bg-white'>
 			<Container className='py-5 animated fadeIn'>
 				<div className='row py-3 mt-6'>

@@ -70,7 +70,7 @@ const Navbar = () => {
 							Join our Slack
 						</a>
 					</Item>
-					<li className='mt-3 md:mt-0 bg-none border rounded-md transition-all duration-300 border-gray-500 text-gray-800 py-1 px-3 inline-block hover:bg-white hover:text-black hover:shadow-lg hover:border-gray-700'>
+					<li className='mt-3 md:mt-0 bg-white border rounded-md transition-all duration-300 border-gray-500 text-gray-800 py-1 px-3 inline-block hover:bg-white hover:text-black hover:shadow-lg hover:border-gray-700'>
 						<Link to='/contact'>Get in touch</Link>
 					</li>
 				</ul>
