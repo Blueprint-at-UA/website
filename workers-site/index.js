@@ -44,15 +44,15 @@ async function handleEvent(event) {
 		let control = 'public, max-age=0, must-revalidate'
 
 		if (
-			req.url.contains('.html') ||
-			req.url.endsWith('app-data.json') ||
-			req.url.endsWith('/sw.js')
+			url.pathname.includes('.html') ||
+			url.pathname.endsWith('app-data.json') ||
+			url.pathname.endsWith('/sw.js')
 		) {
 			control = 'public, max-age=0, must-revalidate'
 		} else if (
-			req.url.contains('/static') ||
-			req.url.endsWith('.js') ||
-			req.url.endsWith('.css')
+			url.pathname.includes('/static') ||
+			url.pathname.endsWith('.js') ||
+			url.pathname.endsWith('.css')
 		) {
 			control = 'public, max-age=31536000, immutable'
 		} else {
@@ -98,11 +98,7 @@ function handlePrefix(prefix) {
 		// strip the prefix from the path for lookup
 		url.pathname = url.pathname.replace(prefix, '/')
 
-		let headers = new Headers(response.headers)
-
-		headers.set('cache-control', 'public, max-age=0, must-revalidate')
-
 		// inherit all other props from the default request
-		return new Request(url.toString(), { ...defaultAssetKey, headers })
+		return new Request(url.toString(), defaultAssetKey)
 	}
 }

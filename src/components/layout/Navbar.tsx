@@ -64,12 +64,12 @@ const Navbar = () => {
 					} md:flex md:flex-row md:items-center`}
 				>
 					<Item>
-						<Link to='/' activeClassName='text-white'>
+						<Link to='/' activeClassName='text-black dark:text-white'>
 							Home
 						</Link>
 					</Item>
 					<Item>
-						<Link to='/about' activeClassName='text-white'>
+						<Link to='/about' activeClassName='text-black dark:text-white'>
 							About
 						</Link>
 					</Item>
