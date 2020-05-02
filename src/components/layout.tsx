@@ -9,7 +9,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import Navbar from './layout/header/Navbar'
+import Navbar from './layout/Navbar'
 import './layout/layout.css'
 
 const Layout: React.FC = ({ children }) => {
