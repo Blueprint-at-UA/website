@@ -13,27 +13,27 @@ import Header from './layout/header'
 import './layout/layout.css'
 
 const Layout: React.FC = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+	const data = useStaticQuery(graphql`
+		query SiteTitleQuery {
+			site {
+				siteMetadata {
+					title
+				}
+			}
+		}
+	`)
 
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      {children}
-      <footer>© {new Date().getFullYear()} Blueprint at UA.</footer>
-    </>
-  )
+	return (
+		<>
+			<Header siteTitle={data.site.siteMetadata.title} />
+			{children}
+			<footer>© {new Date().getFullYear()} Blueprint at UA.</footer>
+		</>
+	)
 }
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired
+	children: PropTypes.node.isRequired,
 }
 
 export default Layout

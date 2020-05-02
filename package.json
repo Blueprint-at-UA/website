@@ -52,7 +52,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "lint-staged": {
-    "**/*.{ts,tsx,js,jsx,json,md}": "prettier-standard --lint"
+    "**/*.{ts,tsx,js,jsx,json,md}": "prettier"
   },
   "repository": {
     "type": "git",
