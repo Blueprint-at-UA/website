@@ -30,7 +30,11 @@ const Layout: React.FC = ({ children }) => {
 		<>
 			<Navbar />
 			{children}
-			<footer>© {new Date().getFullYear()} Blueprint at UA.</footer>
+			<footer className='bg-black text-white py-24'>
+				<div className='container mx-auto'>
+					© {new Date().getFullYear()} Blueprint at UA.
+				</div>
+			</footer>
 		</>
 	)
 }

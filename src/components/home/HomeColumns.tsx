@@ -27,8 +27,8 @@ const HomeColumns = () => {
 
 	return (
 		<div className='bg-white py-20 dark:bg-gray-900'>
-			<div className='container mx-auto px-5 flex flex-wrap md:flex-row md:content-center md:items-center md:justify-center'>
-				<div className='w-full mt-5 px-10 md:hidden'>
+			<div className='container mx-auto py-10 px-5 flex flex-wrap flex-col items-center md:flex-row md:content-center md:items-center md:justify-center md:flex-no-wrap space-x-4'>
+				<div className='w-full mb-8 max-w-sm md:mb-0 md:hidden'>
 					<Img fluid={data.secondImage.childImageSharp.fluid} />
 				</div>
 				<div className='w-full md:w-2/3 lg:pr-10'>
@@ -50,12 +50,12 @@ const HomeColumns = () => {
 						Get in touch
 					</Link>
 				</div>
-				<div className='hidden md:block md:mt-0 md:p0 md:w-1/3 lg:px-10'>
+				<div className='hidden md:block md:mt-0 md:p0 md:w-1/3 md:max-w-lg'>
 					<Img fluid={data.secondImage.childImageSharp.fluid} />
 				</div>
 			</div>
-			<div className='container mx-auto px-5 flex flex-wrap md:flex-row md:content-center md:items-center md:justify-center'>
-				<div className='mt-5 px-10 md:mt-0 md:p0 md:w-1/3 lg:px-10'>
+			<div className='container mx-auto py-10 px-5 flex flex-wrap flex-col items-center md:flex-no-wrap md:flex-row md:content-center md:items-center md:justify-center space-x-4'>
+				<div className='w-full max-w-xs mb-8 md:max-w-full md:mb-0 md:w-1/3 lg:px-10'>
 					<Img fluid={data.firstImage.childImageSharp.fluid} />
 				</div>
 				<div className='w-full md:w-2/3 lg:pr-10'>
